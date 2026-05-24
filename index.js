@@ -1,3 +1,11 @@
+// Setup
+const { execSync } = require('child_process')
+const path = require('path')
+
+const actionDir = path.dirname(__filename)
+execSync('npm ci --omit=dev', { cwd: actionDir, stdio: 'inherit' })
+
+// Main action
 const { setupMSVCDevCmd } = require('./lib')
 const core = require('@actions/core')
 
